@@ -2,10 +2,9 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
-app.get('/',(req,res)=>{
-    return res.send("Hi");
-})
+app.use(express.json());
 
+app.use("/api/contacts",require("./routes/contactRoute"));
 
 app.listen(port,()=>{
     console.log(`Server running on ${port}`);
