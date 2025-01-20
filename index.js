@@ -1,10 +1,11 @@
 const express = require("express");
-const errHandler = require("./middleware/errorHandler");
+const errHandler = require("./middleware/errorHandler");    
+const connectDb = require("./config/dbConnection");
 const app = express();
 const port = 3000;
 
 app.use(express.json());
-
+connectDb();
 app.use("/api/contacts",require("./routes/contactRoute"));
 app.use(errHandler);
 
