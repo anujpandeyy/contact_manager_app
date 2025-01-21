@@ -7,6 +7,7 @@ const port = 3000;
 app.use(express.json());
 connectDb();
 app.use("/api/contacts",require("./routes/contactRoute"));
+app.use("/api/users",require("./routes/userRoute"));
 app.use(errHandler);
 
 app.listen(port,()=>{
