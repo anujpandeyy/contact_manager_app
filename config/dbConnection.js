@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 const connectDb = async()=>{
     try{
-        const connect = mongoose.connect("mongodb://localhost:27017/Contact_App");
+        const connect = mongoose.connect(process.env.CONNECTION_STRING);
         console.log("DB Connected :"+ (await connect).connection.host);
     }catch(error){
         console.log(error);
